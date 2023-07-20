@@ -15,10 +15,10 @@ spec:
       targetRevision: 2.3.5
       helm:
         valueFiles:
-        - $values/projects/fitch/gloo-mesh/values/03-addons-values.yaml
+        - $values/gloo-mesh/values/03-addons-values.yaml
       chart: gloo-platform
-    - repoURL: https://github.com/solo-io/consulting.git
-      targetRevision: mlane
+    - repoURL: https://github.com/ky-rafaels/gloo-platform-gitops.git 
+      targetRevision: main
       ref: values
   syncPolicy:
     automated:
