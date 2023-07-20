@@ -1,0 +1,6 @@
+common:
+  cluster: gloo-gateway-demo-single-cluster
+extAuthService:
+  enabled: true
+rateLimiter:
+  enabled: true

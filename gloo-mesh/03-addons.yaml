@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: addons-argo-app
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: gloo-mesh-addons
+    server: 'https://kubernetes.default.svc'
+  project: default
+  sources:
+    - repoURL: https://storage.googleapis.com/gloo-platform/helm-charts
+      targetRevision: 2.3.5
+      helm:
+        valueFiles:
+        - $values/projects/fitch/gloo-mesh/values/03-addons-values.yaml
+      chart: gloo-platform
+    - repoURL: https://github.com/solo-io/consulting.git
+      targetRevision: mlane
+      ref: values
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
