@@ -1,7 +1,5 @@
 common:
   cluster: cluster1 
-licensing:
-  glooMeshLicenseKey: ''
 glooAgent:
   enabled: true
   relay:

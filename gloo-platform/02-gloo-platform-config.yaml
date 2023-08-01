@@ -12,10 +12,15 @@ spec:
   project: default
   sources:
     - repoURL: https://storage.googleapis.com/gloo-platform/helm-charts
-      targetRevision: 2.3.5
+      targetRevision: 2.3.9
       helm:
         valueFiles:
         - $values/gloo-mesh/values/02-config-values.yaml
+        parameters:
+          - name: licensing.glooMeshLicenseKey
+            value: ''
+          - name: licensing.glooGatewayLicenseKey
+            value: ''
       chart: gloo-platform
     - repoURL: https://github.com/ky-rafaels/gloo-platform-gitops.git 
       targetRevision: main
