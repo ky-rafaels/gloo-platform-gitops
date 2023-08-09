@@ -5,7 +5,7 @@ glooAgent:
   relay:
     serverAddress: gloo-mesh-mgmt-server.gloo-mesh:9900
 glooMgmtServer:
-  serviceType: ClusterIP
+  serviceType: LoadBalancer
   registerCluster: true
   enabled: true
 glooUi:
@@ -26,7 +26,7 @@ redis:
 telemetryGateway:
   enabled: true
   service:
-    type: ClusterIP
+    type: LoadBalancer
 telemetryGatewayCustomization:
   extraReceivers:
     prometheus/gloo-mgmt:
