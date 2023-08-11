@@ -4,10 +4,22 @@ glooAgent:
   enabled: true
   relay:
     serverAddress: gloo-mesh-mgmt-server.gloo-mesh:9900
+    clientTlsSecret:
+      name: relay-client-tls-secret
+    tokenSecret:
+      key: token
+      name: relay-identity-token-secret
+      namespace: ""
 glooMgmtServer:
   serviceType: LoadBalancer
   registerCluster: true
   enabled: true
+  relay:
+    disableCa: true
+    disableCaCertGeneration: true
+    disableTokenGeneration: true
+    tlsSecret:
+      name: custom-relay-server-tls-aws
 glooUi:
   enabled: true
 istioInstallations:
