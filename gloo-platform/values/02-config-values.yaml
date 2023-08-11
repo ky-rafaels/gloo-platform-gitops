@@ -23,6 +23,8 @@ prometheus:
 redis:
   deployment:
     enabled: true
+legacyMetricsPipeline:
+  enabled: false
 telemetryGateway:
   enabled: true
   service:
