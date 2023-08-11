@@ -17,7 +17,7 @@ glooMgmtServer:
   relay:
     disableCa: true
     disableCaCertGeneration: true
-    disableTokenGeneration: true
+    disableTokenGeneration: false
     tlsSecret:
       name: custom-relay-server-tls-aws
 glooUi:

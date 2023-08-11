@@ -15,7 +15,7 @@ spec:
       targetRevision: 2.3.9
       helm:
         valueFiles:
-        - $values/gloo-mesh/values/03-addons-values.yaml
+        - $values/gloo-platform/values/03-addons-values.yaml
       chart: gloo-platform
     - repoURL: https://github.com/ky-rafaels/gloo-platform-gitops.git 
       targetRevision: main

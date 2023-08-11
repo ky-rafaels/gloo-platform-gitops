@@ -15,12 +15,12 @@ spec:
       targetRevision: 2.3.9
       helm:
         valueFiles:
-        - $values/gloo-mesh/values/02-config-values.yaml
+        - $values/gloo-platform/values/02-config-values.yaml
         parameters:
           - name: licensing.glooMeshLicenseKey
-            value: ''
+            value: 'eyJhZGRPbnMiOltdLCJleHAiOjE3MDg0NTk5MjgsImlhdCI6MTY3NjkyMzkyOCwiayI6IjJUNFF0USIsImx0IjoiZW50IiwicHJvZHVjdCI6Imdsb28tbWVzaCJ9.HQa_F8mwmmOMpOut5bvg9j_Z1iqQykyMpyuI8gSjL4w'
           - name: licensing.glooGatewayLicenseKey
-            value: ''
+            value: 'eyJhZGRPbnMiOltdLCJleHAiOjE3MDg0NTk4MjksImlhdCI6MTY3NjkyMzgyOSwiayI6Iml0eXpiUSIsImx0IjoiZW50IiwicHJvZHVjdCI6Imdsb28tZ2F0ZXdheSJ9.hB0z7MUc5Qftc_8zt21tbmpi81TVR4AnTDqPsPEIRR8'
       chart: gloo-platform
     - repoURL: https://github.com/ky-rafaels/gloo-platform-gitops.git 
       targetRevision: main
