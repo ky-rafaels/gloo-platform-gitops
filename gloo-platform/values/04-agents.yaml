@@ -1,4 +1,10 @@
 glooAgent:
   enabled: true
+  relay:
+    clientTlsSecret:
+      name: gloo-mesh-agent-cluster2-tls-cert 
+    tokenSecret:
+      key: token
+      name: relay-identity-token-secret
 telemetryCollector:
   enabled: true
