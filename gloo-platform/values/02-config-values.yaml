@@ -9,7 +9,6 @@ glooAgent:
     tokenSecret:
       key: token
       name: relay-identity-token-secret
-      namespace: ""
 glooMgmtServer:
   serviceType: LoadBalancer
   registerCluster: true
@@ -19,7 +18,7 @@ glooMgmtServer:
     disableCaCertGeneration: true
     disableTokenGeneration: false
     tlsSecret:
-      name: custom-relay-server-tls-aws
+      name: custom-relay-server-tls-aws 
 glooUi:
   enabled: true
 istioInstallations:
