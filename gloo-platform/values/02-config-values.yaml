@@ -9,6 +9,8 @@ glooAgent:
     tokenSecret:
       key: token
       name: relay-identity-token-secret
+    rootTlsSecret:
+      name: custom-relay-root-tls
 glooMgmtServer:
   serviceType: LoadBalancer
   registerCluster: true
