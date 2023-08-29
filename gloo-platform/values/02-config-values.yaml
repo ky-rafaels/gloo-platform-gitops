@@ -30,7 +30,7 @@ telemetryCollector:
   config:
     exporters:
       otlp:
-        endpoint: gloo-telemetry-gateway.gloo-mesh:4317
+        endpoint: gloo-telemetry-gateway.kyle.consultsolo.net:4317
 legacyMetricsPipeline:
   enabled: false
 telemetryGateway:
@@ -43,6 +43,7 @@ redis:
   deployment:
     enabled: true
 telemetryGatewayCustomization:
+  disableCertGeneration: true
   extraReceivers:
     prometheus/gloo-mgmt:
       config:
