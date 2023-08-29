@@ -13,7 +13,7 @@ glooAgent:
     #   name: custom-relay-server-tls-aws
 glooMgmtServer:
   serviceType: LoadBalancer
-  registerCluster: true
+  registerCluster: false 
   enabled: true
   relay:
     disableCa: true
@@ -31,17 +31,17 @@ telemetryCollector:
     exporters:
       otlp:
         endpoint: gloo-telemetry-gateway.gloo-mesh:4317
-prometheus:
-  enabled: true
-redis:
-  deployment:
-    enabled: true
 legacyMetricsPipeline:
   enabled: false
 telemetryGateway:
   enabled: true
   service:
     type: LoadBalancer
+prometheus:
+  enabled: true
+redis:
+  deployment:
+    enabled: true
 telemetryGatewayCustomization:
   extraReceivers:
     prometheus/gloo-mgmt:
