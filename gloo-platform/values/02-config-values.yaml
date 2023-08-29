@@ -31,6 +31,20 @@ telemetryCollector:
     exporters:
       otlp:
         endpoint: gloo-telemetry-gateway.kyle.consultsolo.net:4317
+        tls:
+          ca_file: /etc/otel-certs/ca.crt
+  resources:
+    limits:
+      cpu: 2
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  extraVolumes:
+    - name: root-ca
+      secret:
+        defaultMode: 420
+        secretName: custom-relay-server-tls-aws
 legacyMetricsPipeline:
   enabled: false
 telemetryGateway:
@@ -43,6 +57,7 @@ redis:
   deployment:
     enabled: true
 telemetryGatewayCustomization:
+  serverName: gloo-telemetry-gateway.kyle.consultsolo.net
   disableCertGeneration: true
   extraReceivers:
     prometheus/gloo-mgmt:
