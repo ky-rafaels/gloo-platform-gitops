@@ -23,6 +23,7 @@ glooMgmtServer:
       name: custom-relay-server-tls-aws
 glooUi:
   enabled: true
+  serviceType: LoadBalancer
 istioInstallations:
   enabled: false
 telemetryCollector:
