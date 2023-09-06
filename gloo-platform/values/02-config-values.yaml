@@ -22,7 +22,7 @@ glooMgmtServer:
     tlsSecret:
       name: custom-relay-server-tls-aws
 glooUi:
-  enabled: true
+  enabled: false
   serviceType: LoadBalancer
 istioInstallations:
   enabled: false
@@ -49,7 +49,7 @@ telemetryCollector:
 legacyMetricsPipeline:
   enabled: false
 telemetryGateway:
-  enabled: true
+  enabled: false
   service:
     type: LoadBalancer
 prometheus:
