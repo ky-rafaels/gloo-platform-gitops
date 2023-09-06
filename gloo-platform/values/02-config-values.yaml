@@ -22,7 +22,7 @@ glooMgmtServer:
     tlsSecret:
       name: custom-relay-server-tls-aws
 glooUi:
-  enabled: false
+  enabled: true
   serviceType: LoadBalancer
 istioInstallations:
   enabled: false
