@@ -27,7 +27,7 @@ glooUi:
 istioInstallations:
   enabled: false
 telemetryCollector:
-  enabled: true
+  enabled: false
   config:
     exporters:
       otlp:
