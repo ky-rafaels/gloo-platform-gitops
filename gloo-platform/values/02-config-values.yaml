@@ -7,8 +7,11 @@ glooAgent:
     clientTlsSecret:
       name: gloo-mesh-agent-cluster1-tls-cert 
     tokenSecret:
-      key: token
-      name: relay-identity-token-secret
+      key: null
+      name: null
+      namespace: null
+      # key: token
+      # name: relay-identity-token-secret
     # rootTlsSecret:
     #   name: custom-relay-server-tls-aws
 glooMgmtServer:
@@ -49,7 +52,7 @@ telemetryCollector:
 legacyMetricsPipeline:
   enabled: false
 telemetryGateway:
-  enabled: false
+  enabled: true 
   service:
     type: LoadBalancer
 prometheus:
