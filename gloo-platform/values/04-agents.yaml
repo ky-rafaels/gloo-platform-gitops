@@ -15,13 +15,13 @@ telemetryCollector:
         tls:
           ca_file: /etc/otel-certs/ca.crt
           server_name_override: gloo-telemetry-gateway.kyle.consultsolo.net
-  resources:
-    limits:
-      cpu: 2
-      memory: 2Gi
-    requests:
-      cpu: 500m
-      memory: 1Gi
+  # resources:
+  #   limits:
+  #     cpu: 2
+  #     memory: 2Gi
+  #   requests:
+  #     cpu: 500m
+  #     memory: 1Gi
   extraVolumes:
     - name: root-ca
       secret:
