@@ -33,3 +33,5 @@ telemetryCollector:
             path: relay.yaml
         name: gloo-telemetry-collector-config
       name: telemetry-configmap
+telemetryCollectorCustomization:
+  serverName: gloo-telemetry-gateway.kyle.consultsolo.net
