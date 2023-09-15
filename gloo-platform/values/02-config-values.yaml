@@ -62,6 +62,13 @@ telemetryGateway:
   enabled: true 
   service:
     type: LoadBalancer
+  resources:
+    limits:
+      cpu: 600m
+      memory: 2Gi
+    requests:
+      cpu: 300m
+      memory: 1Gi
 prometheus:
   enabled: true
 redis:
