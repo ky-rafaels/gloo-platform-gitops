@@ -26,3 +26,9 @@ telemetryCollector:
       secret:
         defaultMode: 420
         secretName: custom-relay-server-tls-aws
+    - configMap:
+        items:
+          - key: relay
+            path: relay.yaml
+        name: gloo-telemetry-collector-config
+      name: telemetry-configmap
