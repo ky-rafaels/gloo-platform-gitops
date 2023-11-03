@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gloo-platform-agents
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: gloo-mesh
+    server: 'https://kubernetes.default.svc'
+  project: default
+  sources:
+    - repoURL: https://storage.googleapis.com/gloo-platform/helm-charts
+      targetRevision: 2.3.9
+      helm:
+        valueFiles:
+        - $values/gloo-platform/values/04-agents.yaml
+        parameters:
+          - name: common.cluster 
+            value: cluster2
+          - name: glooAgent.relay.serverAddress
+            value: ae546d76114b243f7a2b5c4f92cea1df-992060318.us-east-2.elb.amazonaws.com:9900 
+          - name: telemetryCollector.config.exporters.otlp.endpoint
+            value: a9f0e96d7c7404533a96b0d036c39c72-1789496585.us-east-2.elb.amazonaws.com:4317 
+      chart: gloo-platform
+    - repoURL: https://github.com/ky-rafaels/gloo-platform-gitops.git 
+      targetRevision: main
+      ref: values
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,54 @@
+---
+apiVersion: admin.gloo.solo.io/v2
+kind: Workspace
+metadata:
+  labels:
+    allow_ingress: "true"
+  name: gateways
+  namespace: gloo-mesh
+spec:
+  workloadClusters:
+  - name: cluster2
+    namespaces:
+    - name: istio-gateways
+  - name: cluster1
+    namespaces:
+    - name: corpgw
+    - name: istio-eastwest
+    - name: istio-ingress-private
+    - name: istio-ingress-public
+    - name: gateways-ws-config
+    - name: gloo-mesh
+    - name: gloo-system
+    - name: keycloak
+---
+apiVersion: admin.gloo.solo.io/v2
+kind: WorkspaceSettings
+metadata:
+  name: gateways
+  namespace: gateways-ws-config
+spec:
+  exportTo:
+  - resources:
+    - kind: SERVICE
+    workspaces:
+    - selector:
+        allow_ingress: "true"
+  importFrom:
+  - resources:
+    - kind: SERVICE
+    - kind: ALL
+      labels:
+        expose: "true"
+    workspaces:
+    - selector:
+        allow_ingress: "true"
+  options:
+    # eastWestGateways:
+    # - selector:
+    #     labels:
+    #       app: eastwestgateway
+    serviceIsolation:
+      enabled: false
+      trimProxyConfig: false
+    trimAllProxyConfig: false
